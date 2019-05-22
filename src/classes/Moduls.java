@@ -9,12 +9,12 @@ package classes;
  *
  * @author x2382383c
  */
-public class moduls {
+public class Moduls {
     int codi;
     String nom;
     int curs;
 
-    public moduls(int codi, String nom, int curs) {
+    public Moduls(int codi, String nom, int curs) {
         this.codi = codi;
         this.nom = nom;
         this.curs = curs;

@@ -9,12 +9,12 @@ package classes;
  *
  * @author x2382383c
  */
-public class notes {
+public class Notes {
     String dni;
     int codi;
     double nota;
 
-    public notes(String dni, int codi, double nota) {
+    public Notes(String dni, int codi, double nota) {
         this.dni = dni;
         this.codi = codi;
         this.nota = nota;

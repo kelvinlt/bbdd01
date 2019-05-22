@@ -9,12 +9,12 @@ package classes;
  *
  * @author x2382383c
  */
-public class alumnes {
+public class Alumnes {
     String dni;
     String nom;
     int edat;
 
-    public alumnes(String dni, String nom, int edat) {
+    public Alumnes(String dni, String nom, int edat) {
         this.dni = dni;
         this.nom = nom;
         this.edat = edat;
