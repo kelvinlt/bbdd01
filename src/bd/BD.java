@@ -86,6 +86,31 @@ public class BD {
                     case 2:
                         System.out.println("Has escogido: 2-Baja");
                         selectObject();
+                        opcionObj = Integer.parseInt(br.readLine());
+                        switch(opcionObj){
+                            case 1:
+                                System.out.println("Escribe el dni del alumen a borrar:");
+                                String dni = br.readLine();
+                                bajaAlumnes(conn, dni);
+                                System.out.println("El alumno ha sido eliminado de la base de datos!");
+                                break;
+                            case 2:
+                                System.out.println("Escribe el codigo del curso a borrar:");
+                                int codigo = Integer.parseInt(br.readLine());
+                                
+                                break;
+                            case 3:
+                                System.out.println("Para borrar la nota tienes que introducir el dni(alumno) y el codigo(curso)");
+                                System.out.println("Escribe el dni del alumen:");
+                                String nDni = br.readLine();
+                                System.out.println("Escribe el codigo del curso:");
+                                int nCodigo = Integer.parseInt(br.readLine());
+                                
+                                break;
+                            case 4:
+                                System.out.println("Saliendo de baja");
+                                break;
+                        }
                         break;
                     case 3:
                         System.out.println("Has escogido: 3-Modificacion");
@@ -185,6 +210,40 @@ public class BD {
         }
     }
     
+    public static void bajaAlumnes(Connection conn, String dni){
+        try {
+            String aux = "DELETE FROM alumnes WHERE dni = ?";
+            PreparedStatement ps = conn.prepareStatement(aux);
+            ps.setString(1, dni);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
-
+    public static void bajaModul(Connection conn, int codi){
+        try {
+            String aux = "DELETE FROM moduls WHERE codi = ?";
+            PreparedStatement ps = conn.prepareStatement(aux);
+            ps.setInt(1, codi);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void bajaNota(Connection conn,String dni,int codi){
+        try {
+            String aux = "DELETE FROM notes WHERE dni=? and codi = ?";
+            PreparedStatement ps = conn.prepareStatement(aux);
+            ps.setString(1, dni);
+            ps.setInt(2, codi);
+            ps.executeUpdate();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
