@@ -24,11 +24,7 @@ public class BD {
 
         try (Connection conn = DriverManager.getConnection(c.url, c.usuari, c.pass)) {
             //DatabaseMetaData metadata = conn.getMetaData();
-            //System.out.println(metadata.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE));
-            
-            //Alumnes clarson = new Alumnes("x2392393c", "clarson", 21);
-            //altaAlumne(conn, clarson);
-                     
+            //System.out.println(metadata.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE));                  
             while(opcionBase != 5){
                 mmenu();
                 
@@ -126,11 +122,7 @@ public class BD {
                         System.out.println("Has escogido: 5-Salir");
                         break;
                 }
-            }
-            
-            //Moduls m01 = new Moduls(1, "m01", 1);
-            //altaModuls(conn, m01);
-            
+            }            
             //s = conn.createStatement();
             //rs = s.executeQuery("select * from alumnes");
             //System.out.println("------------------");
@@ -142,7 +134,7 @@ public class BD {
             //}
             s.close();
         }catch (Exception e){
-            
+            System.out.println(e.getMessage());
         }
     }
 
