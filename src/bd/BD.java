@@ -97,7 +97,8 @@ public class BD {
                             case 2:
                                 System.out.println("Escribe el codigo del curso a borrar:");
                                 int codigo = Integer.parseInt(br.readLine());
-                                
+                                bajaModul(conn, codigo);
+                                System.out.println("El modulo ha sido eliminado de la base de datos!");
                                 break;
                             case 3:
                                 System.out.println("Para borrar la nota tienes que introducir el dni(alumno) y el codigo(curso)");
@@ -105,7 +106,8 @@ public class BD {
                                 String nDni = br.readLine();
                                 System.out.println("Escribe el codigo del curso:");
                                 int nCodigo = Integer.parseInt(br.readLine());
-                                
+                                bajaNota(conn, nDni, nCodigo);
+                                System.out.println("La nota ha sido eliminada de la base de datos!");
                                 break;
                             case 4:
                                 System.out.println("Saliendo de baja");
