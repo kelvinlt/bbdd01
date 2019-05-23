@@ -28,8 +28,7 @@ public class BD {
             
             //Alumnes clarson = new Alumnes("x2392393c", "clarson", 21);
             //altaAlumne(conn, clarson);
-            
-            
+                     
             while(opcionBase != 5){
                 mmenu();
                 
@@ -38,6 +37,51 @@ public class BD {
                     case 1:
                         System.out.println("Has escogido: 1-Alta");
                         selectObject();
+                        opcionObj = Integer.parseInt(br.readLine());
+                        switch(opcionObj){
+                            case 1:
+                                System.out.println("Alumno nuevo:");
+                                System.out.println("DNI?");
+                                String dni = br.readLine();
+                                System.out.println("Nombre?");
+                                String nombre = br.readLine();
+                                System.out.println("Edad?");
+                                int edad = Integer.parseInt(br.readLine());
+                                
+                                Alumnes nAlumne = new Alumnes(dni, nombre, edad);
+                                altaAlumne(conn, nAlumne);
+                                System.out.println("Alumn inscrito!");
+                                break;
+                            case 2:
+                                System.out.println("Modulo nuevo:");
+                                System.out.println("Codigo?");
+                                int codigo = Integer.parseInt(br.readLine());
+                                System.out.println("Nombre?");
+                                String nombreModulo = br.readLine();
+                                System.out.println("Curso?");
+                                int curso = Integer.parseInt(br.readLine());
+                                
+                                Moduls nModuls = new Moduls(codigo, nombreModulo, curso);
+                                altaModuls(conn, nModuls);
+                                System.out.println("Modulo inscrito!");
+                                break;
+                            case 3:
+                                System.out.println("Nota nueva:");
+                                System.out.println("DNI?");
+                                String dniN = br.readLine();
+                                System.out.println("Codigo?");
+                                int codigoN = Integer.parseInt(br.readLine());
+                                System.out.println("Nota?");
+                                double nota = Double.parseDouble(br.readLine());
+                                
+                                Notes nNotes = new Notes(dniN, codigoN, nota);
+                                altaNotes(conn, nNotes);
+                                System.out.println("Nota inscrita!");
+                                break;
+                            case 4:
+                                System.out.println("Saliendo de alta");
+                                break;
+                        }
                         break;
                     case 2:
                         System.out.println("Has escogido: 2-Baja");
@@ -76,20 +120,25 @@ public class BD {
     }
 
     public static void mmenu() {
+        System.out.println("---------------------------");
         System.out.println("Menu principal:");
         System.out.println("1-Alta");
         System.out.println("2-Baja");
         System.out.println("3-Modificacion");
         System.out.println("4-Consulta");
         System.out.println("5-Salir");
+        System.out.println("Escoge una de las opciones");
+        System.out.println("---------------------------");
     }
     
     public static void selectObject(){
+        System.out.println("---------------------------");
         System.out.println("Seleciona:");
         System.out.println("1-Alumno");
         System.out.println("2-Modulo");
         System.out.println("3-Nota");
         System.out.println("4-Salir");
+        System.out.println("---------------------------");
     }
 
     public static void altaAlumne(Connection conn, Alumnes alumne) {
